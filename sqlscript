@@ -1,0 +1,8 @@
+CREATE TABLE `user` (
+	`id` INT(255) NOT NULL auto_increment,
+	`name` VARCHAR(255),
+	`surname` VARCHAR(255),
+	`address` VARCHAR(255),
+	`phone_number` INT(255),
+	PRIMARY KEY (`id`)
+);

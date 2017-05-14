@@ -8,7 +8,7 @@ import javax.persistence.*;
 @Inheritance(strategy=InheritanceType.JOINED)
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
     @Column(name = "name")
@@ -33,6 +33,18 @@ public class User {
     public User(String name, String surname, Integer phoneNumber) {
         this.name = name;
         this.surname = surname;
+        this.phoneNumber = phoneNumber;
+    }
+
+    public User(String name, String surname){
+        this.name = name;
+        this.surname = surname;
+    }
+
+    public User(String name, String surname, String address, Integer phoneNumber) {
+        this.name = name;
+        this.surname = surname;
+        this.address = address;
         this.phoneNumber = phoneNumber;
     }
 

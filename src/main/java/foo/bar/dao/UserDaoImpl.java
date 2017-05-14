@@ -25,7 +25,7 @@ public class UserDaoImpl implements UserDao {
     @Override
     public void addUser(User user) {
         Session session = this.sessionFactory.getCurrentSession();
-        session.persist(user);
+        session.merge(user);
     }
 
     @Override
@@ -41,5 +41,11 @@ public class UserDaoImpl implements UserDao {
     public void updateUser(User user) {
         Session session = this.sessionFactory.getCurrentSession();
         session.update(user);
+    }
+
+    @Override
+    public User getUserById(int id) {
+        Session session = this.sessionFactory.getCurrentSession();
+        return (User) session.load(User.class, id);
     }
 }
